@@ -1,6 +1,14 @@
 # JointBERT
 
-(Unofficial) Pytorch implementation of `JointBERT`: [BERT for Joint Intent Classification and Slot Filling](https://arxiv.org/abs/1902.10909)
+An installable version with updated dependencies of the [(Unofficial) Pytorch implementation](https://github.com/monologg/JointBERT) of `JointBERT`: [BERT for Joint Intent Classification and Slot Filling](https://arxiv.org/abs/1902.10909)
+
+## Installation
+
+`JointBERT` can now be installed directly via `pip`:
+
+```bash
+pip install git+https://github.com/kgnlp/JointBERT.git
+```
 
 ## Model Architecture
 
@@ -15,8 +23,8 @@
 ## Dependencies
 
 - python>=3.9
-- torch==1.6.0
-- transformers==3.0.2
+- torch==2.0.1
+- transformers==4.29.2
 - seqeval==0.0.12
 - pytorch-crf==0.7.2
 
