@@ -5,14 +5,14 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "joint_bert"
 description = 'Pytorch implementation of JointBERT: "BERT for Joint Intent Classification and Slot Filling"'
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
   "torch==2.0.1",
   "transformers==4.29.2",
   "seqeval==0.0.12",
   "pytorch-crf==0.7.2"
 ]
-requires-python = ">=3.6"
+requires-python = ">=3.9"
 
 [tool.setuptools.packages]
-find = { include = ["joint_bert"] }
+find = { include = ["joint_bert", "joint_bert.*"] }
