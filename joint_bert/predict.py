@@ -1,13 +1,13 @@
 import os
 import logging
 import argparse
-from tqdm import tqdm, trange
+from tqdm import tqdm
 
 import numpy as np
 import torch
 from torch.utils.data import TensorDataset, DataLoader, SequentialSampler
 
-from utils import init_logger, load_tokenizer, get_intent_labels, get_slot_labels, MODEL_CLASSES
+from joint_bert.utils import init_logger, load_tokenizer, get_intent_labels, get_slot_labels, MODEL_CLASSES
 
 logger = logging.getLogger(__name__)
 

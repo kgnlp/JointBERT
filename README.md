@@ -14,7 +14,7 @@
 
 ## Dependencies
 
-- python>=3.6
+- python>=3.9
 - torch==1.6.0
 - transformers==3.0.2
 - seqeval==0.0.12

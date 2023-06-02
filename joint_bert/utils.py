@@ -8,8 +8,10 @@ from seqeval.metrics import precision_score, recall_score, f1_score
 
 from transformers import BertConfig, DistilBertConfig, AlbertConfig
 from transformers import BertTokenizer, DistilBertTokenizer, AlbertTokenizer
+from joint_bert.data import LABELS
 
-from model import JointBERT, JointDistilBERT, JointAlbert
+from joint_bert.model import JointBERT, JointDistilBERT, JointAlbert
+
 
 MODEL_CLASSES = {
     'bert': (BertConfig, JointBERT, BertTokenizer),
@@ -25,11 +27,23 @@ MODEL_PATH_MAP = {
 
 
 def get_intent_labels(args):
-    return [label.strip() for label in open(os.path.join(args.data_dir, args.task, args.intent_label_file), 'r', encoding='utf-8')]
+    if labels := LABELS.get(args.task):
+        file = labels.intent.open("r", encoding="utf-8")
+    else:
+        file = open(os.path.join(args.data_dir, args.task, args.intent_label_file), 'r', encoding='utf-8')
+
+    with file:
+        return [label.strip() for label in file]
 
 
 def get_slot_labels(args):
-    return [label.strip() for label in open(os.path.join(args.data_dir, args.task, args.slot_label_file), 'r', encoding='utf-8')]
+    if labels := LABELS.get(args.task):
+        file = labels.slot.open("r", encoding="utf-8")
+    else:
+        file = open(os.path.join(args.data_dir, args.task, args.slot_label_file), 'r', encoding='utf-8')
+
+    with file:
+        return [label.strip() for label in file]
 
 
 def load_tokenizer(args):

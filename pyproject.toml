@@ -16,3 +16,6 @@ requires-python = ">=3.9"
 
 [tool.setuptools.packages]
 find = { include = ["joint_bert", "joint_bert.*"] }
+
+[tool.setuptools.package-data]
+"joint_bert.data" = ["*/*.txt"]
